@@ -29,3 +29,22 @@ def get_planets():
             }
         )
     return jsonify(planet_response)
+
+@planets_bp.route("/<id>", methods=["GET"])
+def get_one_planet(id):
+    try:
+        id = int(id)
+    except ValueError:
+        return {"msg": f"Planet ID '{id}' is invalid. Requires int."}, 400
+    planet_return = None
+    for planet in planet_list:
+        if planet.id == id:
+            planet_return = {
+                "id": planet.id,
+                "name": planet.name,
+                "description": planet.description,
+                "dist_to_star_km": planet.dist_from_star_km
+            }
+    if not planet_return:
+        return {"msg": f"Planet ID '{id}' does not exist"}, 404
+    return jsonify(planet_return), 200
