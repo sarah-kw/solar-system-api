@@ -1,27 +1,27 @@
 from flask import Blueprint, jsonify, abort, make_response
 
-class Planet:
-    def __init__(self, id, name, description, dist_from_star_km):
-        self.id = id
-        self.name = name
-        self.description = description
-        self.dist_from_star_km = dist_from_star_km
+# class Planet:
+#     def __init__(self, id, name, description, dist_from_star_km):
+#         self.id = id
+#         self.name = name
+#         self.description = description
+#         self.dist_from_star_km = dist_from_star_km
     
-    def make_dict(self):
-        planet_dict = {
-            "id": self.id,
-            "name": self.name,
-            "description": self.description,
-            "dist_from_star_km": self.dist_from_star_km
-            }
-        return planet_dict
+#     def make_dict(self):
+#         planet_dict = {
+#             "id": self.id,
+#             "name": self.name,
+#             "description": self.description,
+#             "dist_from_star_km": self.dist_from_star_km
+#             }
+#         return planet_dict
 
 
-planet_list = [
-    Planet(1, "Mercury", "The red planet", 57900000),
-    Planet(2, "Venus", "Many many clouds", 108200000),
-    Planet(3, "Earth", "If you don't live here, let's chat", 149600000)
-]
+# planet_list = [
+#     Planet(1, "Mercury", "The red planet", 57900000),
+#     Planet(2, "Venus", "Many many clouds", 108200000),
+#     Planet(3, "Earth", "If you don't live here, let's chat", 149600000)
+# ]
 
 planets_bp = Blueprint("planets", __name__, url_prefix="/planets")
 
